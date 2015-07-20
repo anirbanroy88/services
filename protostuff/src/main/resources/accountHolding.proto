@@ -1,0 +1,8 @@
+package com.anirban;
+
+option java_package = "com.anirban.generated";
+
+message Position{
+required string cusip = 1;
+required int32 quantity = 2;
+}

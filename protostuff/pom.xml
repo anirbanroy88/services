@@ -1,0 +1,45 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.anirban</groupId>
+	<artifactId>protostuff</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>Protostuff try out</name>
+	<dependencies>
+		<dependency>
+			<groupId>io.protostuff</groupId>
+			<artifactId>protostuff-core</artifactId>
+			<version>1.3.5</version>
+		</dependency>
+		<dependency>
+			<groupId>io.protostuff</groupId>
+			<artifactId>protostuff-runtime</artifactId>
+			<version>1.3.5</version>
+		</dependency>
+
+	</dependencies>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>com.dyuproject.protostuff</groupId>
+				<artifactId>protostuff-maven-plugin</artifactId>
+				<version>1.0.0</version>
+				<configuration>
+					<protoModules>
+						<protoModule>
+							<source>src/main/resources/accountHolding.proto</source>
+							<outputDir>src/main/java</outputDir>
+							<output>java_bean</output>
+							<encoding>UTF-8</encoding>
+							<options>
+								<property>
+									<name>generate_field_map</name>
+								</property>
+							</options>
+						</protoModule>
+					</protoModules>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>
