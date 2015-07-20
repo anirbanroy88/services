@@ -5,16 +5,25 @@ import io.protostuff.Tag;
 public class RTMAccount {
 	
 	public enum AccountSource{
-		RTMNY,
-		RTMLN,
-		RTMHK;
+		RTMNY("RTMNY"),
+		RTMLN("RTMLN"),
+		RTMHK("RTMHK");
+		private String accountSource;
+		
+		private AccountSource(String source){
+			this.accountSource = source;
+		}
+		
+		public String getAccountSource(){
+			return this.accountSource;
+		}
 	}
 	
-	@Tag(1)
+	@Tag(value = 1,alias="Account Number")
 	private String accountNumber;
-	@Tag(2)
+	@Tag(value = 2,alias="Business Group")
 	private String busGroup;
-	@Tag(3)
+	@Tag(value = 3,alias = "Account Region")
 	private AccountSource source;
 	
 	public RTMAccount(String accountNumber, String busGroup,
